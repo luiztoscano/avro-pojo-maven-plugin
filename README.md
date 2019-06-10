@@ -27,6 +27,7 @@ Parameters:
 * fieldsCamelCase - Convert fields to camel case (optional: yes, default: false)
 * methodsCamelCase - Convert methods to camel case (optional: yes, default: false)
 * delimiters - List of delimiter to be consideren when converting to camel case (optional: yes, default: _)
+* imports - List of import files. Required to external record files (optional: yes)
 
 Example:
 
