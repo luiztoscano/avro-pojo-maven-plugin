@@ -28,7 +28,7 @@ import java.util.Stack;
 @Mojo(name = "pojo", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class AvroPojoMojo extends AbstractMojo {
 
-    @Parameter(property = "pojo.sourceDirectory", defaultValue = "${project.basedir}/src/main/resources")
+    @Parameter(property = "pojo.sourceDirectory", defaultValue = "${project.basedir}/src/main/resources", required = true)
     private File sourceDirectory;
 
     @Parameter(property = "pojo.outputDirectory", defaultValue = "${project.build.directory}/generated-sources")
