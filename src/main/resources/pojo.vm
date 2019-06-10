@@ -1,0 +1,53 @@
+package $packageName;
+
+public class $className {
+
+#foreach($field in $fields)
+#set ($fieldType = $TypeUtils.javaType($field.schema()))
+#if ($propertiesCamelCase)
+#set ($propertyName = $CaseUtils.toCamelCase($field.name(), false, $delimiters))
+#else
+#set ($propertyName = $field.name())
+#end
+    $fieldAccessor $fieldType $propertyName;
+#end
+#if ($getters)
+#foreach($field in $fields)
+#set ($fieldType = $TypeUtils.javaType($field.schema()))
+#if ($propertiesCamelCase)
+#set ($propertyName = $CaseUtils.toCamelCase($field.name(), false, $delimiters))
+#else
+#set ($propertyName = $field.name())
+#end
+#if ($methodsCamelCase)
+#set ($methodName = $CaseUtils.toCamelCase($field.name(), true, $delimiters))
+#else
+#set ($methodName = $field.name())
+#end
+
+    public $fieldType get$methodName() {
+        return this.$propertyName;
+    }
+#end
+#end
+#if ($setters)
+#foreach($field in $fields)
+#set ($fieldType = $TypeUtils.javaType($field.schema()))
+#if ($propertiesCamelCase)
+#set ($propertyName = $CaseUtils.toCamelCase($field.name(), false, $delimiters))
+#else
+#set ($propertyName = $field.name())
+#end
+#if ($methodsCamelCase)
+#set ($methodName = $CaseUtils.toCamelCase($field.name(), true, $delimiters))
+#else
+#set ($methodName = $field.name())
+#end
+
+    public void set$methodName($TypeUtils.javaType($field.schema()) $propertyName) {
+        this.$propertyName = $propertyName;
+    }
+#end
+#end
+}
+
