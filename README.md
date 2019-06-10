@@ -48,7 +48,7 @@ Example:
                 <configuration>
                     <sourceDirectory>${project.basedir}/src/main/avro</sourceDirectory>
                     <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                    <packageName>com.accenture.tst</packageName>
+                    <packageName>org.toscano.pojo</packageName>
                     <fieldAccessor>private</fieldAccessor>
                     <includes>
                         <include>**/*.avsc</include>
