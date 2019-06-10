@@ -4,10 +4,16 @@ Maven plugin to generate pojo files from avro schema files
 ## Getting started
 
 ### Prerequites
+* Maven
 
 ### Installing
 
+```
+mvn clean install
+```
+
 ### Usage
+On your projetct:
 
 ```xml
 <plugins>
