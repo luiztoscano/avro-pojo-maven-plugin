@@ -20,7 +20,7 @@ Parameters:
 * outputDirectory - Absolute path where the pojo files will be generated (optional: yes)
 * packageName - Package name (optional: yes, default: avro record namespace)
 * fieldAcessor - Field acessor (optional: yes, default: private)
-* includes - List of avro files to be included (optional: yes, default: **/*avsc)
+* includes - List of avro files to be included (optional: yes, default: **/*.avsc)
 * excludes - List of avro files to be excluded (optional: yes, default: generated-sources)
 * getters - Generate getter methods (optional: yes, default: true)
 * setters - Generate setter methods (optional: yes, default: true)
