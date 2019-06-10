@@ -13,7 +13,22 @@ mvn clean install
 ```
 
 ### Usage
-On your projetct:
+Parameters:
+* phase - generate-sources
+* goal - pojo
+* sourceDirectory - Absolute path of directory containing avro files
+* outputDirectory - Absolute path where the pojo files will be generated
+* packageName - Package name (default: avro record namespace)
+* fieldAcessor - Field Acessos (default: private)
+* includes - List of avro files to be included
+* excludes - List of avro files to be excluded (default: generated-sources)
+* getters - Generate getter methods (default: true)
+* setters - Generate setter methods (default: true)
+* fieldsCamelCase - Convert fields to camel case (default: false)
+* methodsCamelCase - Convert methods to camel case (default: false)
+* delimiters - List of delimiter to be consideren when converting to camel case
+
+Example:
 
 ```xml
 <plugins>
@@ -27,7 +42,7 @@ On your projetct:
             <execution>
                 <phase>generate-sources</phase>
                 <goals>
-                    <goal>dto</goal>
+                    <goal>pojo</goal>
                 </goals>
                 <configuration>
                     <sourceDirectory>${project.basedir}/src/main/avro</sourceDirectory>
@@ -40,7 +55,7 @@ On your projetct:
                     <imports>
                         <import>${project.basedir}/src/main/avro/action.avsc</import>
                     </imports>
-                    <propertiesCamelCase>false</propertiesCamelCase>
+                    <fieldsCamelCase>false</fieldsCamelCase>
                </configuration>
            </execution>
        </executions>
