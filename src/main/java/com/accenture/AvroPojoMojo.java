@@ -25,19 +25,19 @@ import java.util.Stack;
 /**
  * Maven plugin to generate DTOs from Avro schema.
  */
-@Mojo(name = "dto", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
+@Mojo(name = "pojo", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class AvroPojoMojo extends AbstractMojo {
 
-    @Parameter(property = "dto.sourceDirectory", defaultValue = "${project.basedir}/src/main/resources")
+    @Parameter(property = "pojo.sourceDirectory", defaultValue = "${project.basedir}/src/main/resources")
     private File sourceDirectory;
 
-    @Parameter(property = "dto.outputDirectory", defaultValue = "${project.build.directory}/generated-sources")
+    @Parameter(property = "pojo.outputDirectory", defaultValue = "${project.build.directory}/generated-sources")
     private File outputDirectory;
 
-    @Parameter(property = "dto.packageName", defaultValue = "")
+    @Parameter(property = "pojo.packageName", defaultValue = "")
     private String packageName;
 
-    @Parameter(property = "dto.fieldAccessor", defaultValue = "private")
+    @Parameter(property = "pojo.fieldAccessor", defaultValue = "private")
     private String fieldAccessor;
 
     @Parameter
@@ -49,16 +49,16 @@ public class AvroPojoMojo extends AbstractMojo {
     @Parameter
     private File[] imports = { };
 
-    @Parameter(property = "dto.getters", defaultValue = "true")
+    @Parameter(property = "pojo.getters", defaultValue = "true")
     private Boolean getters;
 
-    @Parameter(property = "dto.getters", defaultValue = "true")
+    @Parameter(property = "pojo.getters", defaultValue = "true")
     private Boolean setters;
 
-    @Parameter(property = "dto.propertiesCamelCase", defaultValue = "true")
-    private Boolean propertiesCamelCase;
+    @Parameter(property = "pojo.fieldsCamelCase", defaultValue = "true")
+    private Boolean fieldsCamelCase;
 
-    @Parameter(property = "dto.methodsCamelCase", defaultValue = "true")
+    @Parameter(property = "pojo.methodsCamelCase", defaultValue = "true")
     private Boolean methodsCamelCase;
 
     @Parameter
@@ -181,7 +181,7 @@ public class AvroPojoMojo extends AbstractMojo {
         context.put("fields", fields);
         context.put("getters", getters);
         context.put("setters", setters);
-        context.put("propertiesCamelCase", propertiesCamelCase);
+        context.put("fieldsCamelCase", fieldsCamelCase);
         context.put("methodsCamelCase", methodsCamelCase);
         context.put("delimiters", convertArray(delimiters));
         context.put("CaseUtils", CaseUtils.class);
